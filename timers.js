@@ -1,30 +1,34 @@
-var startButton = document.querySelector("#start")
-var resetButton = document.querySelector("#reset")
-var pauseButton = document.querySelector("#pause")
+var startButton = document.querySelector("#start");
+var resetButton = document.querySelector("#reset");
+var pauseButton = document.querySelector("#pause");
 
-var header = document.getElementById("timer")
+var header = document.getElementById("timer");
 
-startButton.addEventListener("click", startTimer)
-pauseButton.addEventListener("click", stopTimer)
+startButton.addEventListener("click", startTimer);
+pauseButton.addEventListener("click", stopTimer);
+resetButton.addEventListener("click", reset);
 
+
+var num = 0;
 
 function startTimer(){
-  nIntervId = setInterval(count,100)
-
+  header.innerHTML = (num += 1)
 }
 
-function count(){
-  // header.style.color = header.style.color == "red" ? "blue" : "red";
-
-  header.innerHTML = ":00"
-  var i = 0
-  for (var i = 0; i < 59; i++)
-  header.innerHTML = i + 1
-  // var counting = parseInt(header) + 1
-}
-
+var count = setInterval(startTimer, 1000);
 
 
 function stopTimer() {
-  clearInterval(nIntervId);
+  clearInterval(count);
 }
+
+function reset()
+{
+  num = 0;
+}
+
+
+// function myTimer() {
+//     var d = new Date();
+//     document.getElementById("timer").innerHTML = d.toLocaleTimeString();
+// }
